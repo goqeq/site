@@ -1,0 +1,184 @@
+*,
+::before,
+::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    background-color: rgb(12, 12, 12);
+    animation: fadeIn 2.5s ease-in-out;
+}
+
+.container {
+    height: 100vh;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+}
+
+.slider-main,
+.v-slider-bloc-2,
+.v-slider-bloc-3 {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    position: relative;
+    color: white;
+    display: flex;
+    height: 100vh;
+    scroll-snap-align: center;
+}
+
+.slider-main {
+    justify-content: center;
+}
+
+.slider-active {
+    opacity: 1;
+}
+
+#title-ava {
+    position: absolute;
+    top: 10%;
+    font-size: 160px;
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    border-bottom: 3px solid white;
+    padding-bottom: 1rem;
+    line-height: 0.7;
+}
+
+#description-ava {
+    position: absolute;
+    top: 21%;
+    font-family: 'Roboto', sans-serif;
+    color: #C5C3C9;
+    font-size: 30px;
+    letter-spacing: 5px;
+}
+
+#date-ava {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-size: 150px;
+    letter-spacing: 5px;
+}
+
+.button_bottom {
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    bottom: 10%;
+    transition: transform 0.4s ease;
+    z-index: 1;
+}
+
+.button_bottom:hover {
+    transform: translateY(20%);
+}
+
+.button_bottom::after {
+    content: "";
+    display: block;
+    width: 50px;
+    height: 50px;
+    transition: transform 0.2s ease-in-out;
+    margin: auto;
+}
+
+.bottom-circle {
+    width: 500px;
+    height: 500px;
+    background-color: #8850FF;
+    border-radius: 50%;
+    position: absolute;
+    bottom: -2%;
+    filter: blur(300px);
+}
+
+#project,
+#contact {
+    position: fixed;
+    /* Modification : position fixe */
+    top: 0px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 150%;
+    background-color: transparent;
+    border: none;
+    color: white;
+    float: right;
+    letter-spacing: 4px;
+    margin-top: 70px;
+    margin-right: 60px;
+    animation: fadeIn 1s ease-in-out;
+    transition: color .3s ease-in-out;
+    width: 150px;
+    text-align: center;
+    z-index: 2;
+}
+
+#project {
+    right: 180px;
+}
+
+#contact {
+    right: 0px;
+}
+
+#contact::after,
+#project::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: white;
+    transform: scaleX(0);
+    transition: transform .3s ease-in-out;
+    width: 100%;
+}
+
+#contact:hover,
+#project:hover {
+    color: #fff;
+    transition: color .3s ease-out;
+}
+
+#contact:hover::after,
+#project:hover::after {
+    transform: scaleX(1);
+    transition: transform .3s ease-out;
+}
+
+#explication {
+    position: absolute;
+    font-family: 'Roboto', sans-serif;
+    left: 2%;
+    top: 2%;
+}
+
+/* Définir la couleur de fond de la barre de défilement */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: transparent;
+}
+
+/* Définir la couleur de remplissage de la barre de défilement */
+::-webkit-scrollbar-thumb {
+    background-color: #616161;
+    border-radius: 20px;
+}
